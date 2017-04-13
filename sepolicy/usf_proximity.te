@@ -1,0 +1,4 @@
+type usf_proximity, domain;
+type usf_proximity_exec, exec_type, file_type;
+
+init_daemon_domain(usf_proximity)

@@ -1,0 +1,2 @@
+add_lunch_combo lineage_lithium-eng
+add_lunch_combo lineage_lithium-userdebug
