@@ -25,12 +25,13 @@ $(call inherit-product, device/xiaomi/lithium/device.mk)
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions.
+BOARD_VENDOR := Xiaomi
 PRODUCT_NAME := lineage_lithium
 PRODUCT_DEVICE := lithium
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := MI MIX
 PRODUCT_MANUFACTURER := Xiaomi
+TARGET_VENDOR := Xiaomi
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
-TARGET_VENDOR := Xiaomi

@@ -3,27 +3,38 @@ PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1 \
     audio_hal.period_size=192 \
     audio.deep_buffer.media=true \
-    audio.offload.buffer.size.kb=64 \
-    audio.offload.gapless.enabled=true \
+    audio.offload.buffer.size.kb=32 \
+    audio.offload.gapless.enabled=false \
     audio.offload.min.duration.secs=15 \
-    audio.offload.multiaac.enable=true \
-    audio.offload.multiple.enabled=true \
+    audio.offload.multiaac.enable=false \
+    audio.offload.multiple.enabled=false \
     audio.offload.passthrough=false \
     audio.offload.pcm.16bit.enable=true \
     audio.offload.pcm.24bit.enable=true \
     audio.offload.track.enable=false \
-    audio.offload.video=true \
+    audio.offload.video=false \
     audio.safx.pbe.enabled=true \
-    audio.parser.ip.buffer.size=262144 \
+    audio.parser.ip.buffer.size=0 \
     audio.dolby.ds2.enabled=false \
     audio.dolby.ds2.hardbypass=false \
-    qcom.hw.aac.encoder=true \
+    qcom.hw.aac.encoder=false \
     tunnel.audio.encode=false \
-    use.voice.path.for.pcm.voip=true
+    use.voice.path.for.pcm.voip=true \
+	ro.config.vc_call_vol_steps=11 \
+	mmp.enable.3g2=true \
+	mm.enable.qcom_parser=1048575 \
+	av.debug.disable.pers.cache=true \
+	persist.mm.enable.prefetch=true \
+	ro.audio.hifi=true \
+	persist.audio.hifi=false \
+	persist.audio.hifi.volume=0 \
+	persist.audio.native.44.1kHz=true \
+	persist.sys.button_jack_profile=volume \
+	persist.sys.button_jack_switch=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.audio.ssr=false \
-    ro.qc.sdk.audio.fluencetype=none \
+    ro.qc.sdk.audio.fluencetype=fluence \
     persist.audio.fluence.voicecall=true \
     persist.audio.fluence.voicerec=false \
     persist.audio.fluence.speaker=true
@@ -32,24 +43,26 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     bt.max.hfpclient.connections=1 \
     qcom.bluetooth.soc=rome \
-    ro.bluetooth.dun=true \
-    ro.bluetooth.hfp.ver=1.7 \
-    ro.bluetooth.sap=true \
+	ro.bluetooth.wipower=true \
+	ro.bluetooth.emb_wp_mode=true \
+    #ro.bluetooth.dun=true \
+    #ro.bluetooth.hfp.ver=1.7 \
+    #ro.bluetooth.sap=true \
     ro.btconfig.if=uart \
     ro.btconfig.vendor=qcom \
     ro.btconfig.chip=QCA6164 \
     ro.btconfig.dev=/dev/ttyHS0 \
-    ro.qualcomm.bluetooth.ftp=true \
-    ro.qualcomm.bluetooth.hfp=true \
-    ro.qualcomm.bluetooth.hsp=true \
-    ro.qualcomm.bluetooth.map=true \
-    ro.qualcomm.bluetooth.nap=true \
-    ro.qualcomm.bluetooth.opp=true \
-    ro.qualcomm.bluetooth.pbap=true
+    #ro.qualcomm.bluetooth.ftp=true \
+    #ro.qualcomm.bluetooth.hfp=true \
+    #ro.qualcomm.bluetooth.hsp=true \
+    #ro.qualcomm.bluetooth.map=true \
+    #ro.qualcomm.bluetooth.nap=true \
+    #ro.qualcomm.bluetooth.opp=true \
+    #ro.qualcomm.bluetooth.pbap=true
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.hal3hfr.enable=0 \
+    persist.camera.hal3hfr.enable=1 \
     persist.camera.gyro.disable=0 \
     persist.camera.imglib.fddsp=1 \
     persist.camera.HAL3.enabled=1
@@ -57,7 +70,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # CNE
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.cne.feature=1
+    persist.cne.feature=0
 
 # Data modules
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -84,6 +97,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Fingerprint
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.qfp=false \
+	ro.hardware.fingerprint=fpc \
+	sys.fpc.tu.disabled=0 \
 
 # FRP
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -118,7 +133,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
-    media.aac_51_output_enabled=true
+    media.aac_51_output_enabled=true \
+	vidc.enc.dcvs.extra-buff-count=2 \
+	vidc.debug.perf.mode=2
 
 # NFC
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -191,3 +208,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
+	
+#set cutoff voltage to 3400mV
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.cutoff_voltage_mv=3400 
