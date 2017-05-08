@@ -27,7 +27,6 @@
 
 import init.qcom.power.rc
 import init.qcom.usb.rc
-import init.qcom.usb.diag.rc
 import init.target.rc
 
 on early-init
@@ -148,8 +147,8 @@ on boot
     chown system system /sys/class/leds/button-backlight1/brightness
 
     # dt2w
-    chown system system /sys/devices/soc/75ba000.i2c/i2c-12/12-0020/input/input2/wake_gesture
-    chmod 660 /sys/devices/soc/75ba000.i2c/i2c-12/12-0020/input/input2/wake_gesture
+    chown system system /sys/bus/i2c/devices/12-0038/wakeup_mode
+    chmod 660 /sys/bus/i2c/devices/12-0038/wakeup_mode
 
     # Graphic node permissions
     chown system graphics /sys/class/graphics/fb0/idle_time
